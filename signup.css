@@ -1,0 +1,65 @@
+body{
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+    font-size: x-large;
+
+}
+
+.container{
+    height: 200px;
+    width: 900px;
+    border: 10px;
+    margin: auto;
+    margin-top: 20px;
+    
+}
+
+form{
+    background: whitesmoke;
+}
+label{
+    font-style: italic;
+
+}
+
+input[type=text], input[type=password], textarea{
+    width: 50%;
+    padding: 10px;
+    margin: 2px 0 18px 0;
+    display: inline-block;
+    border-radius: 10px;
+    background: whitesmoke;
+    font-style: oblique;
+    font-size: medium;
+}
+
+input[type=text]:focus, input[type=password]:focus{
+    outline: black;
+}
+
+div{
+    padding: 5px 0;
+}
+
+br{
+    border: 1px solid #f1f1f1;
+    margin-bottom: 10px;
+}
+
+select{
+    font-style: oblique;
+    font-size: medium;
+}
+.registerbtn{
+    background-color: #616466;
+    color: white;
+    padding: 16px 20px;
+    margin: 5px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 50%;
+    opacity: 0.9;
+}
+
+.registerbtn:hover{
+    color: #CDD1D2;
+}

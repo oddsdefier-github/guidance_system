@@ -1,0 +1,39 @@
+            $uploaded = move_uploaded_file($Student_id, $first_name,$middle_name,$last_name,$gender,$course,$user_name,$password);
+
+            if ($uploaded) {
+            $loggedInUser  = $_SESSION['user_id'];
+                            
+            $sql = "UPDATE users SET Student_id = '$Student_id', first_name = '$first_name', middle_name = '$middle_name', last_name = '$last_name', gender = '$gender', course = '$course', user_name = '$user_name', password = '$password'
+            WHERE user_name ='$loggedInUser'";
+
+            $results = mysqli_query($conn,$sql);
+
+            }else{
+            header('Location: ./userProfile.php?success=userUpdated');
+            exit;
+            }
+
+
+
+    //updating report
+                                if(isset($_SESSION['report_no']))
+                                {
+                                    $id = $_SESSION['report_no'];
+                                    $query = "select * from student_report where report_no  = '$id' limit 1";
+                            
+                                    $result = mysqli_query($conn, $query);
+
+                                    if ($result && mysqli_num_rows($result) > 0) 
+                                    {
+                                        $user_data = mysqli_fetch_assoc($result);
+                                        //print_r($user_data['user_name']);
+
+
+
+
+
+
+
+
+
+

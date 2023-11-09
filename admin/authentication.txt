@@ -1,0 +1,36 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['auth']))
+{
+    $_SESSION['message'] = "Please Login to Access Admin Dashboard";
+    header("location: ../login.php");
+    exit(0);
+}
+else
+{
+    if ($_SESSION["user_type"] == "admin") 
+    {
+        $_SESSION['message'] = "Welcome to Admin Dashboard";
+        header("location: AdminIndex.php");
+        exit(0);
+    }
+   
+}
+
+?>
+
+                                            <?php
+                            
+                            $dash_user_query = "SELECT * FROM `users` ";
+                            $dash_user_query_run = mysqli_query($conn, $dash_user_query);
+
+                            if ($user_total = mysqli_num_rows($dash_user_query_run)) 
+                            {
+                                '<h4 class="mb-0">'.$user_total.'</h4>';
+                            }
+                            else 
+                            {
+                                '<h4 class="mb-0">No Data found</h4>';
+                            }
+                        ?>
