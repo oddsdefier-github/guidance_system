@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = mysqli_fetch_assoc($result);
 
     if ($row) {
+        $user_id = $row['user_id'];
         $username = $row["user_name"];
         $password = $row["password"];
         $user_type = $row['user_type'];
@@ -26,7 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($username == $usernameInput && $password == $passInput) {
 
             $_SESSION["user_name"] = $username;
-            
+            $_SESSION['user_id'] = $user_id;
+
             if ($user_type == "admin") {
                 echo '<script> alert("Welcome Admin!") </script>';
                 header("location: admin/AdminIndex.php");

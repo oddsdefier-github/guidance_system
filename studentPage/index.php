@@ -14,20 +14,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $date_time = $_POST['date_time'];
     //input from forms
 
+    $user_id = $_SESSION['user_id'];
     $timestamp = time();
     $random_number = mt_rand(1000, 9999);
     $report_id = $timestamp . $random_number;
 
 
-    $query = "INSERT INTO student_report (report_id, n_student, teacher, reasons, involved_students, contact_no, date_time, status) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, 'pending')";
+    $query = "INSERT INTO student_report (report_id, user_id, n_student, teacher, reasons, involved_students, contact_no, date_time, status) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'pending')";
     $stmt = mysqli_prepare($conn, $query);
 
     if (!$stmt) {
         die("Connection failed: " . mysqli_error($conn));
     }
 
-    mysqli_stmt_bind_param($stmt, "sssssss", $report_id, $n_student, $teacher, $reasons, $involved_students, $contact_no, $date_time);
+    mysqli_stmt_bind_param($stmt, "ssssssss", $report_id, $user_id, $n_student, $teacher, $reasons, $involved_students, $contact_no, $date_time);
 
     if (mysqli_stmt_execute($stmt)) {
         echo "<script>alert('Your request is under process!')</script>";
@@ -101,16 +102,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Please report at the Guidance Office at selected Time</label>
+                                    <label for="date_time" class="col-md-12">Please report at the Guidance Office at selected Time</label>
                                     <div class="col-md-12">
-                                        <select name="date_time" class="form-control">
-                                            <option value="">-select time-</option>
-                                            <option value="8-9AM"> 8 - 9AM</option>
-                                            <option value="9-10AM"> 9 - 10AM</option>
-                                            <option value="10-11AM">10 - 11AM</option>
-                                            <option value="1-2PM"> 1 - 2PM</option>
-                                            <option value="2-3PM"> 2 - 3PM</option>
-                                        </select>
+                                        <input type="datetime-local" value="2017-06-01T08:30" id="date_time" name="date_time" placeholder="" class="">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -131,6 +125,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     include('includes/footer.php');
 include('includes/scripts.php');
 ?>
+
+
+
+
 </body>
 
 </html>

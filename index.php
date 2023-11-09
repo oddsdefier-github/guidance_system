@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guidance_Management_System</title>
 </head>
-<body>
 <style type="text/css">
     * {
         margin: 0%;
@@ -14,16 +14,22 @@
         box-sizing: border-box;
     }
 
-    .container{
-        display: flex;
-        height: 500px;
-        width: 800px;
-        border: 1px;
-        margin: auto;
-        margin-top: 50px;
+    body {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        place-items: center;
     }
 
-    .form{
+    .container {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        border: 1px;
+        margin: auto;
+    }
+
+    .form {
         display: flex;
         flex-direction: column;
         width: 400px;
@@ -31,14 +37,14 @@
         background-color: whitesmoke;
     }
 
-    .form h2{
+    .form h2 {
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         margin: 40px;
         margin-top: 50px;
-    
+
     }
 
-    .box{
+    .box {
         padding: 12px;
         width: 65%;
         margin: 10px;
@@ -48,7 +54,7 @@
 
     }
 
-    .form button{
+    .form button {
         padding: 12px 30px;
         width: 200px;
         margin-top: 15px;
@@ -59,36 +65,36 @@
 
     }
 
-    .form button:hover{
+    .form button:hover {
         cursor: pointer;
         background-color: #616466;
     }
 
-    .form a{
+    .form a {
         text-decoration: none;
         color: black;
         margin-top: 15px;
 
     }
 
-    .form a:hover{
+    .form a:hover {
         color: #CDD1D2;
     }
 
-    .side{
+    .side {
         display: flex;
         justify-content: center;
         align-items: center;
 
     }
 
-    .side img{
+    .side img {
         width: 450px;
         height: 500px;
     }
+</style>
 
-    </style>
-
+<body>
     <div class="container">
         <form action="login.php" class="form">
             <center>
@@ -104,4 +110,5 @@
         </div>
     </div>
 </body>
+
 </html>
