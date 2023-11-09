@@ -16,15 +16,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = mysqli_fetch_assoc($result);
 
     if ($row) {
-        $_SESSION["user_name"] = $user_name;
+        $username = $row["user_name"];
+        $password = $row["password"];
+        $user_type = $row['user_type'];
 
-        if ($row["user_type"] == "user") {
-            header("location: studentPage/studentIndex.php");
-        } elseif ($row["user_type"] == "admin") {
-            header("location: admin/AdminIndex.php");
+        $usernameInput = $_POST["user_name"];
+        $passInput = $_POST['password'];
+
+        if ($username == $usernameInput && $password == $passInput) {
+
+            $_SESSION["user_name"] = $username;
+            
+            if ($user_type == "admin") {
+                echo '<script> alert("Welcome Admin!") </script>';
+                header("location: admin/AdminIndex.php");
+
+            } elseif ($user_type == "user") {
+                echo '<script> alert("Welcome ' . $username . '! ") </script>';
+                header("location: studentPage/index.php");
+            }
+
+        } else {
+            echo "<script>alert('Username or Password is incorrect. Please try again.')</script>";
         }
-    } else {
-        echo "Username or Password is incorrect";
     }
 }
 ?>
