@@ -70,14 +70,14 @@ mysqli_stmt_close($stmt);
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="">Year Level</label>
-                                    <select name="y_level" class="form-control">
+                                    <select name="Y_level" class="form-control">
                                         <option value="">Select Year Level</option>
-                                        <option value="Grade 7" <?php echo $info['y_level'] == 'Grade 7' ? 'selected' : ''?> >Grade 7</option>
-                                        <option value="Grade 8" <?php echo $info['y_level'] == 'Grade 8' ? 'selected' : ''?> >Grade 8</option>
-                                        <option value="Grade 9" <?php echo $info['y_level'] == 'Grade 9' ? 'selected' : ''?> >Grade 9</option>
-                                        <option value="Grade 10" <?php echo $info['y_level'] == 'Grade 10' ? 'selected' : ''?> >Grade 10</option>
-                                        <option value="Grade 11" <?php echo $info['y_level'] == 'Grade 11' ? 'selected' : ''?> >Grade 11</option>
-                                        <option value="Grade 12" <?php echo $info['y_level'] == 'Grade 12' ? 'selected' : ''?> >Grade 12</option>
+                                        <option value="Grade 7" <?php echo $info['Y_level'] == 'Grade 7' ? 'selected' : ''?> >Grade 7</option>
+                                        <option value="Grade 8" <?php echo $info['Y_level'] == 'Grade 8' ? 'selected' : ''?> >Grade 8</option>
+                                        <option value="Grade 9" <?php echo $info['Y_level'] == 'Grade 9' ? 'selected' : ''?> >Grade 9</option>
+                                        <option value="Grade 10" <?php echo $info['Y_level'] == 'Grade 10' ? 'selected' : ''?> >Grade 10</option>
+                                        <option value="Grade 11" <?php echo $info['Y_level'] == 'Grade 11' ? 'selected' : ''?> >Grade 11</option>
+                                        <option value="Grade 12" <?php echo $info['Y_level'] == 'Grade 12' ? 'selected' : ''?> >Grade 12</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-3">
