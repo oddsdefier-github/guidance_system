@@ -3,6 +3,16 @@ include('includes/header.php');
 include('includes/sidebar.php');
 include('../connection/connection.php');
 
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    session_destroy();
+    header("Location: ../login.php");
+}
+if (!isset($_SESSION["user_type"]) || $_SESSION["user_type"] != "user") {
+    session_destroy();
+    header('Location: ../login.php');
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
     //input from forms

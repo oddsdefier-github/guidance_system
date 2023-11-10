@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = $row["password"];
         $user_type = $row['user_type'];
 
+
         $usernameInput = $_POST["user_name"];
         $passInput = $_POST['password'];
 
@@ -28,13 +29,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $_SESSION["user_name"] = $username;
             $_SESSION['user_id'] = $user_id;
+            $_SESSION['user_type'] = $user_type;
+
 
             if ($user_type == "admin") {
-                echo '<script> alert("Welcome Admin!") </script>';
                 header("location: admin/AdminIndex.php");
 
             } elseif ($user_type == "user") {
-                echo '<script> alert("Welcome ' . $username . '! ") </script>';
                 header("location: studentPage/index.php");
             }
 
