@@ -5,12 +5,16 @@ include('../connection/connection.php');
 
 session_start();
 if (!isset($_SESSION['user_id'])) {
+    session_unset();
     session_destroy();
-    header("Location: ../login.php");
+    echo '<script>window.location.href = "../login.php";</script>';
 }
 if (!isset($_SESSION["user_type"]) || $_SESSION["user_type"] != "user") {
+    echo '<script>alert("You\'re not allowed here!");</script>';
+    $_SESSION = array();
+    session_unset();
     session_destroy();
-    header('Location: ../login.php');
+    echo '<script>window.location.href = "../login.php";</script>';
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
